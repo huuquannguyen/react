@@ -12,7 +12,7 @@ export default function RepositoriesReadme({ login, repo }) {
         const uri = `https://api.github.com/repos/${login}/${repo}/readme`;
         const { download_url } = await fetch(uri)
             .then(resp => resp.json());
-        const markdown = await fetch(download_url).then(resp => resp.text);
+        const markdown = await fetch(download_url).then(resp => resp.text());
         setMarkdown(markdown);
         setLoading(false);
     }, []);
